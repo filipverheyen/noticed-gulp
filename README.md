@@ -19,6 +19,7 @@ so don't forget to add this to your theme settings.</p>
 <code>gulp watch</code></p>
 <p>Keep a few things in mind</p>
 <ul>
-<li>To make sure everything is compiled into a single CSS file, prefix all your .scss files with an underscore, like this:<br><code>_filename.scss</code></li>
-<li>Split up your code! The 'partials' subdirectories are there to give you an idea, but feel free to make more.
-<li>Keep your Sass variables together and easily accessible by putting them in the 'variables' directory.
+<li><p>To make sure everything is compiled into a single CSS file, prefix all your .scss files with an underscore, like this:<br><code>_filename.scss</code></p></li>
+<li><p>Split up your code!<br>The 'partials' subdirectories are there to give you an idea, but feel free to make more.<p></li>
+<li><p>Keep your Sass variables together and easily accessible by putting them in the 'variables' directory.<p></li>
+<li><p>Work <em>Mobile First</em>:<br>Susy (http://susydocs.oddbird.net/) and Breakpoint (http://breakpoint-sass.com/)are there to help you in this regard.</p></li>
