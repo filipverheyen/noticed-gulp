@@ -1,10 +1,8 @@
 # noticed-gulp
 
 <h1>INSTALLATION</h1>
-
-<h3>You need the following software on your system</h3>
-<p>nodeJS<br> 
-follow the instructions at http://nodejs.org/</p>
+<p>Make sure you have nodeJS installed<br> 
+just follow the instructions at http://nodejs.org/</p>
 <p>After you have installed nodeJS, you can go and install gulp globally with following command:<br>
 <code>(sudo) npm install gulp -g</code></p>
 <p>Also install Bower globally with ( Bower http://bower.io/ ):<br>
