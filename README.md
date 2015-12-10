@@ -1,14 +1,14 @@
 # NOTICED GULP
 
 <h2>INSTALLATION</h2>
-<p>Download this repository and extract the contents into your theme folder.</p>
-<p><strong>IMPORTANT: </strong>Move the contents of the extracted folder into the parent folder (the root of your theme).
 <p>Make sure you have nodeJS installed.<br> 
 http://nodejs.org/</p>
 <p>After you have installed nodeJS, you can go and install gulp globally with following command:<br>
 <code>(sudo) npm install gulp -g</code></p>
 <p>Also install Bower globally:<br>
 <code>(sudo) npm install bower -g</code></p>
+<p>Download this repository and extract the contents into your theme folder.</p>
+<p><strong>IMPORTANT: </strong>Move the contents of the extracted folder into the parent folder (the root of your theme).</p>
 <p>Now, open your terminal and go to your used theme folder and run following command to install all necessary node modules referenced in package.json file:<br>
 <code>(sudo) npm install</code></p>
 <p>Also get the bower components for susy(grid) and breakpoint-sass from the bower.json file.<br>
