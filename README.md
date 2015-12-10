@@ -23,3 +23,4 @@ http://nodejs.org/</p>
 <li><p>Split up your code!<br>The 'partials' subdirectories are there to give you an idea, but feel free to make more.<p></li>
 <li><p>Keep your Sass variables together and easily accessible by putting them in the 'variables' directory.<p></li>
 <li><p>Work <em>Mobile First</em>:<br>Susy (http://susydocs.oddbird.net/) and Breakpoint (http://breakpoint-sass.com/) are there to help you in this regard.</p></li>
+<li><p>You might require additional browser plugins for Livereload to work.<br>Chrome has a wonderful extension aptly named  ... <em>LiveReload</em></p></li>
