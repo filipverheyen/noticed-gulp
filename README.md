@@ -1,7 +1,7 @@
 # NOTICED GULP
 
 <h2>INSTALLATION</h2>
-<p>Download this repository and extract the contents into your theme root.</p>
+<p>Download this repository and extract the contents into the root of your theme.</p>
 <p>Make sure you have nodeJS installed.<br> 
 http://nodejs.org/</p>
 <p>After you have installed nodeJS, you can go and install gulp globally with following command:<br>
