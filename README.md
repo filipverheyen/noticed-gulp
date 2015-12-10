@@ -1,4 +1,4 @@
-# noticed-gulp
+# NOTICED GULP
 
 <h2>INSTALLATION</h2>
 <p>Download this repository and extract the contents into your theme root.</p>
