@@ -26,4 +26,4 @@ http://nodejs.org/</p>
 <li><p>Keep your Sass variables together and easily accessible by putting them in the 'variables' directory.<p></li>
 <li><p>Work <em>Mobile First</em>:<br>Susy (http://susydocs.oddbird.net/) and Breakpoint (http://breakpoint-sass.com/) are there to help you in this regard.</p></li>
 <li><p>You might require additional browser plugins for Livereload to work.<br>Chrome has a wonderful extension aptly named <em>LiveReload</em>.</p></li>
-<li><p>The created 'node_modules' folder is pretty darn big, but is only there to assist development.<br>There is no need to upload this folder when going live.</p></li>
+<li><p>The created 'node_modules' and 'bower_components' folders are pretty big, but are only there to assist development.<br>There is no need to upload these folders when going live.</p></li>
