@@ -19,5 +19,5 @@ so don't forget to add this to your theme settings.</p>
 <code>gulp watch</code></p>
 <p>Keep a few things in mind</p>
 <ul>
-<li>To make sure everything is compiled into a single CSS file, prefix all your .scss files with an underscore, like this:<code>_{filename}.scss</code></li>
+<li>To make sure everything is compiled into a single CSS file, prefix all your .scss files with an underscore, like this:<br><code>_filename.scss</code></li>
 <li>Split up your code! The 'partials' subdirectories are there to give you an idea, but feel free to make many more subdirectories as you go.
