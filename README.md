@@ -15,5 +15,9 @@ http://nodejs.org/</p>
 <p>All your sass files will be compiled in the assets/css folder,<br>
 so don't forget to add this to your theme settings.</p>
 <h2>USING GULP</h2>
-<p>Run Gulp<br>
+<p>Tell Gulp to watch for changes<br>
 <code>gulp watch</code></p>
+<p>Keep a few things in mind</p>
+<ul>
+<li>To make sure everything is compiled into a single CSS file, prefix all your .scss files with an underscore, like this:<code>_{filename}.scss</code></li>
+<li>Split up your code! The 'partials' subdirectories are there to give you an idea, but feel free to make many more subdirectories as you go.
