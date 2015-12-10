@@ -1,12 +1,14 @@
 # NOTICED GULP
 
 <h2>INSTALLATION</h2>
+<h3>First time only</h3>
 <p>Make sure you have nodeJS installed.<br> 
 http://nodejs.org/</p>
 <p>After you have installed nodeJS, you can go and install gulp globally with following command:<br>
 <code>(sudo) npm install gulp -g</code></p>
 <p>Also install Bower globally:<br>
 <code>(sudo) npm install bower -g</code></p>
+<h3>Normal installation</h3>
 <p>Download this repository and extract the contents into your theme folder.</p>
 <p><strong>IMPORTANT: </strong>Move the contents of the extracted folder (typically 'noticed-gulp-master') into the parent folder (the root of your theme).</p>
 <p>Now, open your terminal and go to your used theme folder and run following command to install all necessary node modules referenced in package.json file:<br>
