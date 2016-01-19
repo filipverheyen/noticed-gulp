@@ -2,6 +2,9 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var cssGlobbing = require('gulp-css-globbing');
 var livereload = require('gulp-livereload');
+var plumber = require('gulp-plumber');
+var sourcemaps = require('gulp-sourcemaps');
+var notify = require("gulp-notify");
 
 function errorAlert(error){
 	notify.onError({title: "SCSS Error", message: "Check your terminal", sound: "Sosumi"})(error); //Error Notification
@@ -16,11 +19,11 @@ gulp.task('sass', function(){
 	      extensions: ['.scss']
 	    }))
 	.pipe(plumber({errorHandler: errorAlert}))
+	.pipe(sourcemaps.init())
     	.pipe(sass()) // Using gulp-sass
+    	.pipe(sourcemaps.write())
     	.pipe(gulp.dest('assets/css'))
-    	.pipe(livereload())
-    	.pipe(sourcemaps.init())
-    	.pipe(sourcemaps.write('./'));
+    	.pipe(livereload());
 });
 
 gulp.task('watch', function(){
