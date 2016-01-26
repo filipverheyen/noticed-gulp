@@ -19,9 +19,9 @@ gulp.task('sass', function(){
 	      extensions: ['.scss']
 	    }))
 	.pipe(plumber({errorHandler: errorAlert}))
-	.pipe(sourcemaps.init())
+	.pipe(sourcemaps.init({loadMaps: true}))
     	.pipe(sass()) // Using gulp-sass
-    	.pipe(sourcemaps.write())
+    	.pipe(sourcemaps.write('../maps'))
     	.pipe(gulp.dest('assets/css'))
     	.pipe(livereload());
 });
