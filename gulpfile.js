@@ -5,6 +5,7 @@ var livereload = require('gulp-livereload');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var notify = require("gulp-notify");
+var autoprefixer = require('gulp-autoprefixer');
 
 function errorAlert(error){
 	notify.onError({title: "SCSS Error", message: "Check your terminal", sound: "Sosumi"})(error); //Error Notification
@@ -20,8 +21,8 @@ gulp.task('sass', function(){
 	    }))
 	.pipe(plumber({errorHandler: errorAlert}))
 	.pipe(sourcemaps.init({loadMaps: true}))
-	.pipe(autoprefixer())
     	.pipe(sass()) // Using gulp-sass
+    	.pipe(autoprefixer())
     	.pipe(sourcemaps.write('../maps'))
     	.pipe(gulp.dest('assets/css'))
     	.pipe(livereload());
