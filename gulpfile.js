@@ -20,6 +20,7 @@ gulp.task('sass', function(){
 	    }))
 	.pipe(plumber({errorHandler: errorAlert}))
 	.pipe(sourcemaps.init({loadMaps: true}))
+	.pipe(autoprefixer())
     	.pipe(sass()) // Using gulp-sass
     	.pipe(sourcemaps.write('../maps'))
     	.pipe(gulp.dest('assets/css'))
