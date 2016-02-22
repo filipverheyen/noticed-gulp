@@ -13,6 +13,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-css-globbing": "^0.1.8",
     "gulp-livereload": "^3.8.1",
+    "gulp-modernizr": "^1.0.0-alpha",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.1.0",

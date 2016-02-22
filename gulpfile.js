@@ -1,35 +1,65 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var cssGlobbing = require('gulp-css-globbing');
-var livereload = require('gulp-livereload');
-var plumber = require('gulp-plumber');
-var sourcemaps = require('gulp-sourcemaps');
-var notify = require("gulp-notify");
-var autoprefixer = require('gulp-autoprefixer');
+	concat = require('gulp-concat');
+	sass = require('gulp-sass');
+	cssGlobbing = require('gulp-css-globbing');
+	livereload = require('gulp-livereload');
+	plumber = require('gulp-plumber');
+	sourcemaps = require('gulp-sourcemaps');
+	notify = require("gulp-notify");
+	autoprefixer = require('gulp-autoprefixer');
+	cache = require('gulp-cache'),
+	imagemin = require('gulp-imagemin'),
+	cssnano = require('gulp-cssnano'),
+	pngquant = require('imagemin-pngquant');
 
-function errorAlert(error){
+function errorAlertSass(error){
 	notify.onError({title: "SCSS Error", message: "Check your terminal", sound: "Sosumi"})(error); //Error Notification
+	console.log(error.toString());//Prints Error to Console
+	this.emit("end"); //End function
+};
+function errorAlertJS(error){
+	notify.onError({title: "JS Error", message: "Check your terminal", sound: "Sosumi"})(error); //Error Notification
 	console.log(error.toString());//Prints Error to Console
 	this.emit("end"); //End function
 };
 
 gulp.task('sass', function(){
-  	return gulp.src('assets/scss/**/*.scss')
-	  	.pipe(cssGlobbing({
-	      // Configure it to use SCSS files
-	      extensions: ['.scss']
-	    }))
-	.pipe(plumber({errorHandler: errorAlert}))
+  	return gulp.src(pathToTheme + 'build/scss/**/*.scss')
+	.pipe(cssGlobbing({extensions: ['.scss']}))
+	.pipe(plumber({errorHandler: errorAlertSass}))
 	.pipe(sourcemaps.init({loadMaps: true}))
     	.pipe(sass()) // Using gulp-sass
     	.pipe(autoprefixer())
-    	.pipe(sourcemaps.write('../maps'))
-    	.pipe(gulp.dest('assets/css'))
+	.pipe(sourcemaps.write('../maps'))
+    	.pipe(gulp.dest(pathToTheme + 'assets/css'))
+    	.pipe(rename({suffix: '.min'}))
+    	.pipe(cssnano())
+    	.pipe(gulp.dest(pathToTheme + 'assets/css'))
     	.pipe(livereload());
+});
+
+gulp.task('scripts', function () {
+	return gulp.src(pathToTheme + "build/js/*.js")
+	.pipe(plumber({errorHandler: errorAlertJS}))
+	.pipe(sourcemaps.init({loadMaps: true}))
+	.pipe(concat('scripts.js'))
+	.pipe(sourcemaps.write('../maps'))
+	.pipe(gulp.dest(pathToTheme + 'assets/js/'))
+	.pipe(rename({suffix: '.min'}))
+	.pipe(uglify())
+	.pipe(gulp.dest(pathToTheme + 'assets/js/'))
+	.pipe(livereload());
+});
+
+gulp.task('images', function() {
+	return gulp.src(pathToTheme + 'src/img/*.{png,gif,jpg,jpeg,svg}')
+	.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true, use: [pngquant()] })))
+	.pipe(gulp.dest(pathToTheme + 'dist/img'))
 });
 
 gulp.task('watch', function(){
 	livereload.listen();
-  	gulp.watch('assets/scss/**/*.scss', ['sass']);
-  	// Other watchers
+  	gulp.watch('src/scss/**/*.scss', ['sass']);
+  	gulp.watch('src/js/*.js', ['scripts']);
+  	gulp.watch('src/img/*{png,gif,jpg,jpeg,svg}', ['images']);
 });
