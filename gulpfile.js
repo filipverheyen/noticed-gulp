@@ -12,6 +12,7 @@ var gulp = require('gulp');
 	cssnano = require('gulp-cssnano'),
 	pngquant = require('imagemin-pngquant');
 
+
 function errorAlertSass(error){
 	notify.onError({title: "SCSS Error", message: "Check your terminal", sound: "Sosumi"})(error); //Error Notification
 	console.log(error.toString());//Prints Error to Console
@@ -24,37 +25,37 @@ function errorAlertJS(error){
 };
 
 gulp.task('sass', function(){
-  	return gulp.src(pathToTheme + 'build/scss/**/*.scss')
+  	return gulp.src('build/scss/**/*.scss')
 	.pipe(cssGlobbing({extensions: ['.scss']}))
 	.pipe(plumber({errorHandler: errorAlertSass}))
 	.pipe(sourcemaps.init({loadMaps: true}))
     	.pipe(sass()) // Using gulp-sass
     	.pipe(autoprefixer())
 	.pipe(sourcemaps.write('../maps'))
-    	.pipe(gulp.dest(pathToTheme + 'assets/css'))
+    	.pipe(gulp.dest('assets/css'))
     	.pipe(rename({suffix: '.min'}))
     	.pipe(cssnano())
-    	.pipe(gulp.dest(pathToTheme + 'assets/css'))
+    	.pipe(gulp.dest('assets/css'))
     	.pipe(livereload());
 });
 
 gulp.task('scripts', function () {
-	return gulp.src(pathToTheme + "build/js/*.js")
+	return gulp.src("build/js/*.js")
 	.pipe(plumber({errorHandler: errorAlertJS}))
 	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(concat('scripts.js'))
 	.pipe(sourcemaps.write('../maps'))
-	.pipe(gulp.dest(pathToTheme + 'assets/js/'))
+	.pipe(gulp.dest('assets/js/'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
-	.pipe(gulp.dest(pathToTheme + 'assets/js/'))
+	.pipe(gulp.dest('assets/js/'))
 	.pipe(livereload());
 });
 
 gulp.task('images', function() {
-	return gulp.src(pathToTheme + 'src/img/*.{png,gif,jpg,jpeg,svg}')
+	return gulp.src('src/img/*.{png,gif,jpg,jpeg,svg}')
 	.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true, use: [pngquant()] })))
-	.pipe(gulp.dest(pathToTheme + 'dist/img'))
+	.pipe(gulp.dest('dist/img'))
 });
 
 gulp.task('watch', function(){
